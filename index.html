@@ -10,8 +10,11 @@
     html {
       scroll-behavior: smooth;
     }
-    #intro {
-      height: 100vh;
+    #intro.fade-out {
+     opacity: 0;
+     transform: translateY(-50px);
+     transition: all 1s ease-out;
+     pointer-events: none;
     }
     #scrollText {
       transition: opacity 1s ease-out, transform 1s ease-out;
