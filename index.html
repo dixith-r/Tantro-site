@@ -32,8 +32,12 @@
       font-weight: 500;
     }
 
+    nav a:first-child {
+      margin-left: 0;
+    }
+
     .hero {
-      height: 300vh;
+      height: 800vh;
       position: relative;
       display: flex;
       justify-content: center;
@@ -78,11 +82,10 @@
 
 <body>
   <header>
-    <div><strong>TANTRO</strong></div>
-    <nav>
-      <a href="#about">About Us</a>
-      <a href="#services">Services</a>
-      <a href="#action">In Action</a>
+    <div style="position: absolute; left: 2rem;"><a href="#about" style="text-decoration: none; color: white;"><strong>TANTRO</strong></a></div>
+    <nav style="margin-left: auto;">
+      <a href="#about">What We Do</a>
+      <a href="#blog">Explore Edge</a>
       <a href="#connect">Connect</a>
     </nav>
   </header>
@@ -91,7 +94,6 @@
     <div class="hero-text-container">
       <div id="text1" class="hero-text active">Think Next-Gen Industry</div>
       <div id="text2" class="hero-text">Think Tantro!</div>
-      <div id="text3" class="hero-text">Well you clicked it and you're here at Tantro</div>
     </div>
   </section>
 
@@ -102,24 +104,20 @@
   <script>
     const text1 = document.getElementById("text1");
     const text2 = document.getElementById("text2");
-    const text3 = document.getElementById("text3");
 
     window.addEventListener("scroll", () => {
       const scrollY = window.scrollY;
       const vh = window.innerHeight;
 
-      if (scrollY < vh) {
+      if (scrollY < 3 * vh) {
         text1.classList.add("active");
         text2.classList.remove("active");
-        text3.classList.remove("active");
-      } else if (scrollY >= vh && scrollY < 2 * vh) {
+      } else if (scrollY >= 3 * vh && scrollY < 6 * vh) {
         text1.classList.remove("active");
         text2.classList.add("active");
-        text3.classList.remove("active");
-      } else if (scrollY >= 2 * vh) {
+      } else {
         text1.classList.remove("active");
-        text2.classList.remove("active");
-        text3.classList.add("active");
+        text2.classList.add("active"); // stays until user scrolls to about
       }
     });
   </script>
