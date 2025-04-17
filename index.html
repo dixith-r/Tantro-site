@@ -11,6 +11,7 @@
       font-family: Arial, sans-serif;
       background-color: black;
       color: white;
+      scroll-behavior: smooth;
     }
 
     header {
@@ -32,25 +33,37 @@
     }
 
     .hero {
-      height: 100vh;
+      height: 300vh;
+      position: relative;
       display: flex;
-      flex-direction: column;
       justify-content: center;
       align-items: center;
-      position: relative;
+    }
+
+    .hero-text-container {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
       text-align: center;
+      z-index: 1;
+      pointer-events: none;
     }
 
     .hero-text {
       font-size: 4rem;
       font-weight: bold;
+      transition: opacity 0.6s ease-in-out;
+      opacity: 0;
       position: absolute;
-      transition: opacity 0.5s ease-in-out;
+    }
+
+    .hero-text.active {
+      opacity: 1;
     }
 
     .about {
       height: 100vh;
-      background: black;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -75,8 +88,11 @@
   </header>
 
   <section class="hero">
-    <div id="text1" class="hero-text" style="opacity: 1">Think Tantro!</div>
-    <div id="text2" class="hero-text" style="opacity: 0">Well you clicked it and you're here at Tantro</div>
+    <div class="hero-text-container">
+      <div id="text1" class="hero-text active">Think Next-Gen Industry</div>
+      <div id="text2" class="hero-text">Think Tantro!</div>
+      <div id="text3" class="hero-text">Well you clicked it and you're here at Tantro</div>
+    </div>
   </section>
 
   <section id="about" class="about">
@@ -86,18 +102,24 @@
   <script>
     const text1 = document.getElementById("text1");
     const text2 = document.getElementById("text2");
-    const aboutSection = document.getElementById("about");
+    const text3 = document.getElementById("text3");
 
     window.addEventListener("scroll", () => {
       const scrollY = window.scrollY;
-      const aboutTop = aboutSection.offsetTop;
+      const vh = window.innerHeight;
 
-      if (scrollY + window.innerHeight / 2 >= aboutTop) {
-        text1.style.opacity = 0;
-        text2.style.opacity = 1;
-      } else {
-        text1.style.opacity = 1;
-        text2.style.opacity = 0;
+      if (scrollY < vh) {
+        text1.classList.add("active");
+        text2.classList.remove("active");
+        text3.classList.remove("active");
+      } else if (scrollY >= vh && scrollY < 2 * vh) {
+        text1.classList.remove("active");
+        text2.classList.add("active");
+        text3.classList.remove("active");
+      } else if (scrollY >= 2 * vh) {
+        text1.classList.remove("active");
+        text2.classList.remove("active");
+        text3.classList.add("active");
       }
     });
   </script>
