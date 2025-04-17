@@ -4,115 +4,100 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TANTRO | Mission Control</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <title>Tantro</title>
   <style>
-    html {
-      scroll-behavior: smooth;
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: black;
+      color: white;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background-color: #000;
+      position: fixed;
+      width: 100%;
+      z-index: 1000;
+    }
+
+    nav a {
+      margin: 0 1rem;
+      text-decoration: none;
+      color: white;
+      font-weight: 500;
+    }
+
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      text-align: center;
+    }
+
+    .hero-text {
+      font-size: 4rem;
+      font-weight: bold;
+      position: absolute;
+      transition: opacity 0.5s ease-in-out;
+    }
+
+    .about {
+      height: 100vh;
+      background: black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 2rem;
+      font-weight: bold;
+      background: linear-gradient(to right, #4f46e5, #22d3ee);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
   </style>
 </head>
 
-<body class="bg-black text-white font-sans">
-  <!-- Navigation Header -->
-  <header class="fixed top-0 left-0 w-full z-50 bg-black bg-opacity-90 py-4 px-6 flex justify-between items-center text-sm">
-    <nav class="flex-1 flex justify-start space-x-6">
-      <a href="#about" class="hover:text-blue-400">About Us</a>
-      <a href="#services" class="hover:text-blue-400">Services</a>
-    </nav>
-    <div class="text-lg font-bold cursor-pointer" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });">
-      TANTRO
-    </div>
-    <nav class="flex-1 flex justify-end space-x-6">
-      <a href="#usecases" class="hover:text-blue-400">In Action</a>
-      <a href="#contact" class="hover:text-blue-400">Connect</a>
+<body>
+  <header>
+    <div><strong>TANTRO</strong></div>
+    <nav>
+      <a href="#about">About Us</a>
+      <a href="#services">Services</a>
+      <a href="#action">In Action</a>
+      <a href="#connect">Connect</a>
     </nav>
   </header>
 
-  <!-- Hero Section with Scroll Text Switch -->
-  <section class="h-screen flex flex-col items-center justify-center text-center relative">
-    <!-- Think Next Gen Industry (Visible on load) -->
-    <h1 id="nextGenText" class="text-4xl md:text-6xl font-extrabold absolute transition-opacity duration-1000 ease-out">
-      Think Next-Gen Industry
-    </h1>
-    <!-- Think Tantro! (Visible after scroll) -->
-    <h1 id="tantroText" class="text-4xl md:text-6xl font-extrabold absolute opacity-0 transition-opacity duration-1000 ease-out">
-      Think Tantro!
-    </h1>
+  <section class="hero">
+    <div id="text1" class="hero-text" style="opacity: 1">Think Tantro!</div>
+    <div id="text2" class="hero-text" style="opacity: 0">Well you clicked it and you're here at Tantro</div>
   </section>
 
-  <!-- Main Content -->
-  <main class="pt-32 space-y-32">
-    <!-- Home -->
-    <section id="home" class="text-center py-20">
-      <h1 class="text-4xl md:text-6xl font-bold text-gradient bg-gradient-to-r from-purple-400 via-blue-500 to-green-400 bg-clip-text text-transparent">
-        well you clicked it and you're here at Tantro
-      </h1>
-      <p class="mt-4 text-lg text-gray-300">we build bridge that connects past and future</p>
-    </section>
+  <section id="about" class="about">
+    we build bridge that connects past and future.
+  </section>
 
-    <!-- About -->
-    <section id="about" class="max-w-4xl mx-auto px-6">
-      <h2 class="text-3xl font-semibold mb-4">Who We Are</h2>
-      <p class="text-gray-400">TANTRO is a tech company passionate about creating innovative and scalable solutions. Our team blends technology and creativity to build products that push the boundaries of possibility.</p>
-    </section>
-
-    <!-- Services -->
-    <section id="services" class="max-w-5xl mx-auto px-6">
-      <h2 class="text-3xl font-semibold mb-6">What We Do</h2>
-      <div class="grid md:grid-cols-3 gap-6">
-        <div class="bg-[#11141c] p-6 rounded-xl shadow-md">
-          <h3 class="text-xl font-bold mb-2">🚀 Product Engineering</h3>
-          <p class="text-gray-400">From ideation to deployment, we build full-stack solutions.</p>
-        </div>
-        <div class="bg-[#11141c] p-6 rounded-xl shadow-md">
-          <h3 class="text-xl font-bold mb-2">📡 IoT Integrations</h3>
-          <p class="text-gray-400">Smart systems powered by hardware and software synergy.</p>
-        </div>
-        <div class="bg-[#11141c] p-6 rounded-xl shadow-md">
-          <h3 class="text-xl font-bold mb-2">🧠 AI & Automation</h3>
-          <p class="text-gray-400">We design AI-driven processes to automate and optimize.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Use Cases -->
-    <section id="usecases" class="max-w-4xl mx-auto px-6">
-      <h2 class="text-3xl font-semibold mb-4">In Action</h2>
-      <p class="text-gray-400 mb-4">Explore how TANTRO solutions have helped transform industries — from manufacturing to smart cities and beyond.</p>
-      <ul class="list-disc ml-6 text-gray-300">
-        <li>Automated warehouse logistics with AI-powered robotics</li>
-        <li>IoT-enabled energy monitoring for smart buildings</li>
-        <li>Edge computing in remote environments</li>
-      </ul>
-    </section>
-
-    <!-- Contact -->
-    <section id="contact" class="max-w-3xl mx-auto px-6 text-center">
-      <h2 class="text-3xl font-semibold mb-4">Connect With Us</h2>
-      <p class="text-gray-400 mb-6">Have a project in mind or just want to chat? We’d love to hear from you.</p>
-      <a href="mailto:contact@tantro.com" class="inline-block px-6 py-3 bg-blue-600 hover:bg-blue-700 rounded-lg text-white font-semibold">Email Us</a>
-    </section>
-  </main>
-
-  <footer class="mt-32 text-center text-sm text-gray-500 py-6">
-    &copy; 2025 TANTRO. All rights reserved.
-  </footer>
-
-  <!-- Scroll-based Text Switch Script -->
   <script>
-    const nextGenText = document.getElementById('nextGenText');
-    const tantroText = document.getElementById('tantroText');
+    const text1 = document.getElementById("text1");
+    const text2 = document.getElementById("text2");
+    const aboutSection = document.getElementById("about");
 
-    window.addEventListener('scroll', () => {
+    window.addEventListener("scroll", () => {
       const scrollY = window.scrollY;
+      const aboutTop = aboutSection.offsetTop;
 
-      if (scrollY > 50) {
-        nextGenText.classList.add('opacity-0');
-        tantroText.classList.remove('opacity-0');
+      if (scrollY + window.innerHeight / 2 >= aboutTop) {
+        text1.style.opacity = 0;
+        text2.style.opacity = 1;
       } else {
-        nextGenText.classList.remove('opacity-0');
-        tantroText.classList.add('opacity-0');
+        text1.style.opacity = 1;
+        text2.style.opacity = 0;
       }
     });
   </script>
