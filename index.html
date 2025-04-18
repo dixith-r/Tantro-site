@@ -1,126 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tantro</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: black;
-      color: white;
-      scroll-behavior: smooth;
-    }
-
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 2rem;
-      background-color: #000;
-      position: fixed;
-      width: 100%;
-      z-index: 1000;
-    }
-
-    nav a {
-      margin: 0 1rem;
-      text-decoration: none;
-      color: white;
-      font-weight: 500;
-    }
-
-    nav a:first-child {
-      margin-left: 0;
-    }
-
-    .hero {
-      height: 800vh;
-      position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .hero-text-container {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      text-align: center;
-      z-index: 1;
-      pointer-events: none;
-    }
-
-    .hero-text {
-      font-size: 4rem;
-      font-weight: bold;
-      transition: opacity 0.6s ease-in-out;
-      opacity: 0;
-      position: absolute;
-    }
-
-    .hero-text.active {
-      opacity: 1;
-    }
-
-    .about {
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 2rem;
-      font-weight: bold;
-      background: linear-gradient(to right, #4f46e5, #22d3ee);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Website Title</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background: #35424a;
+            color: #ffffff;
+            padding: 10px 0;
+            text-align: center;
+        }
+        section {
+            padding: 20px;
+            margin: 10px;
+            background: #ffffff;
+            border-radius: 5px;
+        }
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            background: #35424a;
+            color: #ffffff;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            max-width: 400px;
+            margin: auto;
+        }
+        .contact-form input, .contact-form textarea {
+            margin: 5px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .contact-form button {
+            padding: 10px;
+            background: #35424a;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
 </head>
-
 <body>
-  <header>
-    <div style="position: absolute; left: 2rem;"><a href="#about" style="text-decoration: none; color: white;"><strong>TANTRO</strong></a></div>
-    <nav style="margin-left: auto;">
-      <a href="#about">What We Do</a>
-      <a href="#blog">Explore Edge</a>
-      <a href="#connect">Connect</a>
-    </nav>
-  </header>
 
-  <section class="hero">
-    <div class="hero-text-container">
-      <div id="text1" class="hero-text active">Think Next-Gen Industry</div>
-      <div id="text2" class="hero-text">Think Tantro!</div>
-    </div>
-  </section>
+<header>
+    <h1>Welcome to Our Industrial Solutions</h1>
+</header>
 
-  <section id="about" class="about">
-    we build bridge that connects past and future.
-  </section>
+<section>
+    <h2>About Our Vision and Mission</h2>
+    <p>We aim to shape an industrial future through advanced technology, empowering industries and students for Industry 5.0.</p>
+</section>
 
-  <script>
-    const text1 = document.getElementById("text1");
-    const text2 = document.getElementById("text2");
+<section>
+    <h2>What We Do</h2>
+    <h3>Industrial Solutions</h3>
+    <p>Utilizing real-time data from sensors for decision-making and centralized control room for monitoring operations.</p>
+    
+    <h3>Digital Transformation</h3>
+    <p>Integrating IIoT and Digital Twin technologies to create real-time replicas of physical systems for AI-driven decisions.</p>
+    
+    <h3>Technical Consulting</h3>
+    <p>Providing guidance and support for digital industrial projects, ensuring successful implementation.</p>
+</section>
 
-    window.addEventListener("scroll", () => {
-      const scrollY = window.scrollY;
-      const vh = window.innerHeight;
+<section>
+    <h2>Knowledge Hub</h2>
+    <p>A space for sharing insights on technology trends and real-world applications, offering research-backed content to inspire.</p>
+</section>
 
-      if (scrollY < 3 * vh) {
-        text1.classList.add("active");
-        text2.classList.remove("active");
-      } else if (scrollY >= 3 * vh && scrollY < 6 * vh) {
-        text1.classList.remove("active");
-        text2.classList.add("active");
-      } else {
-        text1.classList.remove("active");
-        text2.classList.add("active"); // stays until user scrolls to about
-      }
-    });
-  </script>
+<section>
+    <h2>Contact Us</h2>
+    <form class="contact-form">
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea placeholder="Your Message" rows="4" required></textarea>
+        <button type="submit">Send Message</button>
+    </form>
+</section>
+
+<footer>
+    <p>&copy; 2023 Your Company Name. All rights reserved.</p>
+</footer>
+
 </body>
-
 </html>
