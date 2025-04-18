@@ -1,101 +1,67 @@
-<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Website Title</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
-        header {
-            background: #35424a;
-            color: #ffffff;
-            padding: 10px 0;
-            text-align: center;
-        }
-        section {
-            padding: 20px;
-            margin: 10px;
-            background: #ffffff;
-            border-radius: 5px;
-        }
-        footer {
-            text-align: center;
-            padding: 10px 0;
-            background: #35424a;
-            color: #ffffff;
-            position: relative;
-            bottom: 0;
-            width: 100%;
-        }
-        .contact-form {
-            display: flex;
-            flex-direction: column;
-            max-width: 400px;
-            margin: auto;
-        }
-        .contact-form input, .contact-form textarea {
-            margin: 5px 0;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-        .contact-form button {
-            padding: 10px;
-            background: #35424a;
-            color: #ffffff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-    </style>
-</head>
-<body>
-
-<header>
-    <h1>Welcome to Our Industrial Solutions</h1>
-</header>
-
-<section>
-    <h2>About Our Vision and Mission</h2>
-    <p>We aim to shape an industrial future through advanced technology, empowering industries and students for Industry 5.0.</p>
-</section>
-
-<section>
-    <h2>What We Do</h2>
-    <h3>Industrial Solutions</h3>
-    <p>Utilizing real-time data from sensors for decision-making and centralized control room for monitoring operations.</p>
-    
-    <h3>Digital Transformation</h3>
-    <p>Integrating IIoT and Digital Twin technologies to create real-time replicas of physical systems for AI-driven decisions.</p>
-    
-    <h3>Technical Consulting</h3>
-    <p>Providing guidance and support for digital industrial projects, ensuring successful implementation.</p>
-</section>
-
-<section>
-    <h2>Knowledge Hub</h2>
-    <p>A space for sharing insights on technology trends and real-world applications, offering research-backed content to inspire.</p>
-</section>
-
-<section>
-    <h2>Contact Us</h2>
-    <form class="contact-form">
-        <input type="text" placeholder="Your Name" required>
-        <input type="email" placeholder="Your Email" required>
-        <textarea placeholder="Your Message" rows="4" required></textarea>
-        <button type="submit">Send Message</button>
-    </form>
-</section>
-
-<footer>
-    <p>&copy; 2023 Your Company Name. All rights reserved.</p>
-</footer>
-
-</body>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   TANTRO
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&amp;display=swap" rel="stylesheet"/>
+  <style>
+   body {
+      font-family: "Poppins", sans-serif;
+    }
+  </style>
+ </head>
+ <body class="bg-[#f3f5f3]">
+  <header class="flex justify-between items-center px-6 py-4 max-w-[1200px] mx-auto">
+   <div class="flex items-center space-x-2">
+    <!-- Simple easy-to-use logo: stylized T with blue and green blocks -->
+    <svg class="w-8 h-8" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="TANTRO logo stylized T in blue and green">
+     <rect x="8" y="8" width="12" height="40" fill="#3B82F6"/>
+     <rect x="20" y="8" width="12" height="12" fill="#10B981"/>
+     <rect x="32" y="20" width="12" height="12" fill="#3B82F6"/>
+     <rect x="44" y="32" width="12" height="16" fill="#10B981"/>
+    </svg>
+    <span class="text-black text-base font-normal select-none">
+     TANTRO
+    </span>
+   </div>
+   <nav class="flex space-x-6 text-[10px] text-[#4a4a4a] font-normal select-none">
+    <a class="hover:underline" href="#">
+     Hello!
+    </a>
+    <a class="hover:underline" href="#">
+     This is what we do
+    </a>
+    <a class="hover:underline" href="#">
+     Circuit
+    </a>
+    <a class="hover:underline" href="#">
+     Let's connect
+    </a>
+   </nav>
+  </header>
+  <main class="max-w-[1200px] mx-auto px-6 pt-20 pb-16 text-center">
+   <h1 class="text-[40px] leading-[44px] font-light text-[#1a1a1a]">
+    think next-gen industry
+    <br/>
+    think tantro!
+   </h1>
+  </main>
+  <div class="max-w-[1200px] mx-auto px-6">
+   <!-- Easy-to-use bottom pattern: repeating vertical lines with wave shape -->
+   <svg class="w-full h-32" viewBox="0 0 1200 128" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Decorative wave pattern with vertical lines in light gray color spanning full width">
+    <defs>
+     <pattern id="lines" x="0" y="0" width="10" height="128" patternUnits="userSpaceOnUse">
+      <rect x="4" y="0" width="1" height="128" fill="#d1d5db" />
+     </pattern>
+     <path id="wave" d="M0 64 Q150 0 300 64 T600 64 T900 64 T1200 64 V128 H0 Z" />
+    </defs>
+    <rect width="1200" height="128" fill="url(#lines)" />
+    <use href="#wave" fill="#f3f5f3" />
+   </svg>
+  </div>
+ </body>
 </html>
