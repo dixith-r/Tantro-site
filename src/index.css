@@ -1,0 +1,154 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ------- Base ------- */
+html {
+  scroll-behavior: smooth;
+}
+body {
+  /* Subtle grain overlay gives the dark theme real texture */
+  background-color: #05070D;
+  background-image:
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(46,107,255,0.15), transparent 60%),
+    radial-gradient(ellipse 60% 50% at 100% 100%, rgba(32,213,165,0.08), transparent 60%);
+}
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.4;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.04 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ------- Scrollbar ------- */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: #05070D; }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #2E6BFF, #20D5A5);
+  border-radius: 10px;
+  border: 2px solid #05070D;
+}
+
+/* ------- Selection ------- */
+::selection {
+  background: rgba(46,107,255,0.4);
+  color: #fff;
+}
+
+@layer components {
+  /* Monospace index label used next to section headings — industrial blueprint feel */
+  .section-index {
+    @apply font-mono text-xs tracking-[0.2em] text-mist-400 uppercase;
+  }
+
+  /* Section eyebrow badge */
+  .eyebrow {
+    @apply inline-flex items-center gap-2 rounded-full border border-ink-600 bg-ink-800/60
+           px-3 py-1 font-mono text-[10px] uppercase tracking-[0.22em] text-mist-200 backdrop-blur;
+  }
+
+  /* Gradient text using brand ramp */
+  .text-gradient {
+    background: linear-gradient(135deg, #5B8CFF 0%, #9B76FF 50%, #4DE6BD 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* Glass card with thin gradient border */
+  .glass {
+    position: relative;
+    background: linear-gradient(180deg, rgba(17,23,38,0.7) 0%, rgba(10,14,24,0.7) 100%);
+    backdrop-filter: blur(12px);
+    border-radius: 16px;
+  }
+  .glass::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    padding: 1px;
+    border-radius: 16px;
+    background: linear-gradient(140deg, rgba(46,107,255,0.35), rgba(255,255,255,0.05) 40%, rgba(32,213,165,0.3));
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+            mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  /* Engineering-corner bracket frame */
+  .brackets {
+    position: relative;
+  }
+  .brackets::before,
+  .brackets::after {
+    content: "";
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    border-color: rgba(46,107,255,0.6);
+    border-style: solid;
+    transition: border-color 0.3s ease;
+  }
+  .brackets::before {
+    top: 10px; left: 10px;
+    border-width: 1px 0 0 1px;
+  }
+  .brackets::after {
+    bottom: 10px; right: 10px;
+    border-width: 0 1px 1px 0;
+  }
+  .brackets:hover::before,
+  .brackets:hover::after {
+    border-color: rgba(32,213,165,0.8);
+  }
+
+  /* Primary CTA button */
+  .btn-primary {
+    @apply relative inline-flex items-center justify-center gap-2 rounded-full
+           px-6 py-3 font-medium text-white transition-all duration-300
+           shadow-glow-azure hover:shadow-glow-teal;
+    background: linear-gradient(135deg, #2E6BFF 0%, #7A4FFF 60%, #20D5A5 100%);
+    background-size: 200% 200%;
+  }
+  .btn-primary:hover {
+    background-position: 100% 100%;
+    transform: translateY(-1px);
+  }
+
+  /* Secondary ghost button */
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-ink-500
+           px-6 py-3 font-medium text-mist-100 transition-all duration-300
+           hover:border-teal hover:text-teal hover:bg-ink-800/50;
+  }
+
+  /* Service card hover scanline */
+  .scanline {
+    position: relative;
+    overflow: hidden;
+  }
+  .scanline::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 0%, rgba(32,213,165,0.08) 50%, transparent 100%);
+    transform: translateY(-100%);
+    transition: transform 0.6s ease;
+    pointer-events: none;
+  }
+  .scanline:hover::after {
+    transform: translateY(100%);
+  }
+}
+
+/* ------- Reveal helpers for scroll animations without JS ------- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
