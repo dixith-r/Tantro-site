@@ -5,7 +5,7 @@ import react from '@vitejs/plugin-react'
 // For a custom domain (tantro.in via CNAME) or Vercel, keep '/'.
 export default defineConfig({
   plugins: [react()],
-  base: '/',
+  base: '/Tantro-site/',
   build: {
     outDir: 'dist',
     sourcemap: false,
